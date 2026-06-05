@@ -1,12 +1,14 @@
 def commonElements(a, b, c):
     
     i=j=k=0
-    ans =set()
+    ans =[]
 
     while i < len(a) and j< len(b) and k<len(c):
         
         if a[i] == b[j] == c[k]:
-            ans.add(a[i])
+            if len(ans) == 0 or ans[-1] != a[i]:
+                    ans.append(a[i])
+                    
             i+=1
             j+=1
             k+=1
