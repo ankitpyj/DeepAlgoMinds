@@ -1,0 +1,35 @@
+class Solution(object):
+    def largestRectangleArea(self, heights):
+        
+        maxx = 0
+        n=len(heights)
+
+        for i in range(n):
+            h = heights[i]
+
+            # left 
+            left = i
+            widhleft = 1
+            while left >0 and heights[left -1] >= h:
+                widhleft += 1
+                left = left - 1
+
+
+            # right
+            right = i
+            widhright = 1
+            # while heights[right +1] >= h and right < n-1:
+            while right < n-1 and heights[right +1] >= h:
+                widhright += 1
+                right = right + 1
+
+            # width = widhleft + widhright
+            width = widhleft + widhright- 1
+            area = width * h
+
+            maxx = max(maxx,area)
+
+        return maxx
+
+        
+
