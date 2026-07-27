@@ -1,18 +1,21 @@
 class Solution(object):
     def majorityElement(self, nums):
-        
-        freq= {}
 
-        for i in nums:
-            if i in freq:
-                freq[i] += 1
+        candidate = nums[0]
+        count = 1
+
+        for num in nums[1:]:
+
+            if candidate == num:
+                count +=1
 
             else:
-                freq[i] = 1
-        
-        midd = len(nums)//2
+                count -=1
 
-        for j in freq:
-            if freq[j] > midd:
-                return j
-            
+            if count ==0:
+                candidate = num
+                count = 1
+
+        return candidate
+
+        
