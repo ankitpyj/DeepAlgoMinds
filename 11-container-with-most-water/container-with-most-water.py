@@ -7,9 +7,10 @@ class Solution(object):
 
         while left < right:
             width = right - left 
-            height1 = min(height[left],height[right])
+            # height1 = min(height[left],height[right])
             
-            curr_area = width * height1
+            # curr_area = width * height1
+            curr_area = (right - left) * min(height[left], height[right])
 
             max_area = max(curr_area,max_area)
 
