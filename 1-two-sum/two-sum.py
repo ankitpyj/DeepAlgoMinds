@@ -1,11 +1,15 @@
 class Solution(object):
     def twoSum(self, nums, target):
+        map ={}
 
-        for i in range(len(nums)):
-            for j in range(i+1,len(nums)):
-                sum = nums[i] + nums [j]
+        for i,num in enumerate(nums):
+            exist_check = target - num
 
-                if sum == target:
-                    return [i,j]
+            if exist_check in map:
+                return [map[exist_check],i]
+
+            map[num] = i
+
+
                 
         
