@@ -1,15 +1,11 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        map ={}
+        hashmap = {}
 
-        for i,num in enumerate(nums):
-            exist_check = target - num
+        for i in range(len(nums)):
+            exist = target - nums[i]
 
-            if exist_check in map:
-                return [map[exist_check],i]
+            if exist in hashmap:
+                return [i,hashmap[exist]]
 
-            map[num] = i
-
-
-                
-        
+            hashmap[nums[i]] = i
