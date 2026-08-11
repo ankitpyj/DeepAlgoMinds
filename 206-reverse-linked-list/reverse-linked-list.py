@@ -9,13 +9,9 @@ class Solution(object):
         prev = None
         curr = head
 
-        if head is None:
-            return None
-
         while curr:
             tmp = curr.next
             curr.next = prev
             prev = curr
             curr = tmp
         return prev
-        
