@@ -7,16 +7,17 @@
 class Solution(object):
     def preorderTraversal(self, root):
 
-        output= []
+        ans =[]
 
         def preorder(root):
-        # pre = root - left - right 
-            if root == None:
-                return 
-            output.append(root.val)
+
+            if root is None:
+                return
+            ans.append(root.val)
             preorder(root.left)
             preorder(root.right)
 
         preorder(root)
-        return output
+        return ans
 
+        
