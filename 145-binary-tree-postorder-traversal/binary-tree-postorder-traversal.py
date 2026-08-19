@@ -7,19 +7,15 @@
 class Solution(object):
     def postorderTraversal(self, root):
 
-        output = []
-        
-        def postorder(root):
+        ans = []
 
-            if root == None:
-                return
-            # left  right root
-            
+        def postorder(root):
+            if root is None:
+                return 
+
             postorder(root.left)
             postorder(root.right)
-            output.append(root.val)
-            
+            ans.append(root.val)
 
         postorder(root)
-
-        return output
+        return ans
