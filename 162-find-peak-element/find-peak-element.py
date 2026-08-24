@@ -13,6 +13,7 @@ class Solution(object):
             else: #nums[mid] > nums[mid+1]:
                 right = mid
 
-        return left
+        return right
+    
 
         
