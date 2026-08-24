@@ -1,15 +1,18 @@
 class Solution(object):
     def findPeakElement(self, nums):
+         
+        left = 0
+        right = len(nums) -1
 
-        hashmap= {}
+        while left<right:
+            mid = (left+right)//2
 
-        for i in range(len(nums)):
-            hashmap[nums[i]] = i
+            if nums[mid] < nums[mid+1]:
+                left = mid+1
 
-        nums.sort()
+            else: #nums[mid] > nums[mid+1]:
+                right = mid
 
-        last = nums[len(nums)-1]
-
-        return hashmap[last]
+        return left
 
         
