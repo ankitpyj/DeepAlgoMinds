@@ -9,24 +9,25 @@ class Solution(object):
         if root is None:
             return []
 
-        result = []
-        queue = deque([root])
+        levelstore ={}
+
+        queue = deque([(root,0)])
 
         while queue:
-            length = len(queue)
 
-            for i in range(length):
-                node=queue.popleft()
+            for i in range(len(queue)):
+                node,level = queue.popleft()
+
+                levelstore[level] =  node.val
 
                 if node.left:
-                    queue.append(node.left)
+                    queue.append((node.left, level + 1))
+
                 if node.right:
-                    queue.append(node.right)
+                    queue.append((node.right, level + 1))
 
-                if i == length - 1:
-                    result.append(node.val)
+        return list(levelstore.values())
 
-        return result
 
 
         
