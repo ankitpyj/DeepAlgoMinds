@@ -1,0 +1,43 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def balanceBST(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+
+        # inorder - list meh - list ka middle -- root
+        listt = []
+        def inorder(root):
+            nonlocal listt
+
+            if root is None:
+                return
+
+            inorder(root.left)
+            listt.append(root)
+            inorder(root.right)
+
+        inorder(root)
+
+        def build(left,right):
+            if left > right:
+                return None
+
+            mid =  (left+right)//2
+
+            root = listt[mid]
+
+            root.left = build(left,mid-1)
+            root.right = build(mid+1,right)
+            
+            return root
+
+
+        return build(0,len(listt)-1)
+
+
+
+            
+        
